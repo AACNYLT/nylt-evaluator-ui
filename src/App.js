@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import LoginComponent from './LoginComponent/LoginComponent';
+import HostComponent from './Quick/HostComponent';
 
 function App() {
     return (
-        <LoginComponent/>
+        <HostComponent/>
     );
 }
 

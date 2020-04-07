@@ -43,6 +43,7 @@ export default class LoginComponent extends React.Component {
                 loading: true
             });
             await Api.login(this.state.username, this.state.password);
+            this.props.onLogin();
         } catch (e) {
             this.setState({
                 showBadCredentialMessage: true
