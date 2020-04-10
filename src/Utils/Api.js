@@ -10,7 +10,7 @@ export default class Api {
     static GetScouts() {
         return new Promise(resolve => {
             setTimeout(() => {
-                resolve(true);
+                resolve(require('../Quick/sampleScouts'));
             }, 2000)
         })
     }

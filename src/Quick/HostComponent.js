@@ -5,11 +5,14 @@ import ProfileComponent from './ProfileComponent';
 
 export default class HostComponent extends React.Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
-            screen: 'login'
+            screen: 'login',
+            profileScout: {}
         };
         this.onLogin = this.onLogin.bind(this);
+        this.onProfile = this.onProfile.bind(this);
+        this.hostedComponent = this.hostedComponent.bind(this);
     }
 
     onLogin() {
@@ -18,16 +21,27 @@ export default class HostComponent extends React.Component {
         });
     }
 
-    render() {
+    onProfile(scout) {
+        this.setState({
+            screen: 'profile',
+            profileScout: scout
+        })
+    }
+
+    hostedComponent() {
         switch (this.state.screen) {
             case 'login':
-                return <LoginComponent onLogin={this.onLogin} />;
+                return <LoginComponent onLogin={this.onLogin}/>;
             case 'home':
-                return <TileListComponent />;
+                return <TileListComponent launchProfile={this.onProfile}/>;
             case 'profile':
-                return <ProfileComponent />;
+                return <ProfileComponent scout={this.state.profileScout} onClose={this.onLogin}/>;
             default:
-                return <LoginComponent />;
+                return <LoginComponent/>;
         }
+    }
+
+    render() {
+        return <div>{this.hostedComponent()}</div>
     }
 }

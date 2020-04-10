@@ -1,0 +1,23 @@
+ul {
+    list-style: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+h2.profileHeader {
+    margin-top: 10px;
+}
+
+a {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+#profile {
+    padding: 20px;
+}
